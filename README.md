@@ -18,7 +18,7 @@ Learning GoLang with knowledge of Computer Science and multiple Programming Lang
 
 | Date | Content |  
 | -- | -- | 
-| | 
+|3/8 | set `Go` environment<br> learn Hello.go and test.go
 | | 
 | | 
 | | 
