@@ -1,6 +1,11 @@
 package pointer
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
+
+var InsufficientFundsError = errors.New("你他妈没这么多钱")
 
 type Wallet struct {
 	balance Bitcoin
@@ -16,8 +21,12 @@ func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
 
-func (w *Wallet) Withdraw(amount Bitcoin) {
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.Balance() {
+		return InsufficientFundsError
+	}
 	w.balance -= amount
+	return nil
 }
 
 func (b Bitcoin) String() string {
